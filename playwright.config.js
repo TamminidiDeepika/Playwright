@@ -13,7 +13,7 @@ module.exports = defineConfig({
   ],
   use: {
     browserName: 'chromium', // Define the default browser
-    headless: false, // Run tests in non-headless mode (change to true for CI/CD)
+    headless: process.env.CI ? true : false, // Run headless in CI, headed locally
     screenshot: 'on', // Take a screenshot for every test step
     video: 'retain-on-failure', // Record a video only if the test fails
     trace: 'retain-on-failure', // Capture a trace on failure
